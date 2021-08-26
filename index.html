@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Rock Paper Scissor</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+        *{
+            font-family: 'Press Start 2P', cursive;
+        }
+        #te{
+            font-size: 300%;
+/*            position: absolute;
+            left: 50%;
+            transform: translate(-50% , -50%);*/
+        }
+        #po{
+            font-size: 200%;
+            text-align: right;
+        }
+        button{
+            background-color: transparent;
+            border-color: transparent;
+        }
+        body{
+            background-image: url(https://i.pinimg.com/originals/41/d8/da/41d8da1d54ce22bb1dc27960bc0371c8.jpg);
+            background-position: center center;
+            background-attachment: fixed;
+            background-size: cover ;
+        }
+        img{
+            max-width: 100%;
+            max-height: 100%;
+        }
+        div{
+            margin: 1rem;
+        }
+        #all{
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50% , -50%);
+            display: flex;
+        }
+        #left{
+            margin-right: 30rem;
+        }
+        .ch{
+            cursor: pointer;
+            
+        }
+
+        #rockleft{
+            background-color: #bbb;
+            border-style: solid;
+            border-color: black;
+            border-radius: 50%;;
+            height: 8rem;
+            width: 8rem;
+        }
+        #paperleft{
+            background-color: #bbb;
+            border-style: solid;
+            border-color: black;
+            border-radius: 50%;;
+            height: 8rem;
+            width: 8rem;
+        }
+        #scissorleft{
+            background-color: #bbb;
+            border-style: solid;
+            border-color: black;
+            border-radius: 50%;;
+            height: 8rem;
+            width: 8rem;
+        }
+        #rockright{
+            background-color: #bbb;
+            border-style: solid;
+            border-color: black;
+            border-radius: 50%;;
+            height: 8rem;
+            width: 8rem;
+        }
+        #paperright{
+            background-color: #bbb;
+            border-style: solid;
+            border-color: black;
+            border-radius: 50%;;
+            height: 8rem;
+            width: 8rem;
+        }
+        #scissorright{
+            background-color: #bbb;
+            border-style: solid;
+            border-color: black;
+            border-radius: 50%;;
+            height: 8rem;
+            width: 8rem;
+        }
+        @keyframes ro{
+            from {
+                height: 8rem;
+                width: 8rem;
+            }
+            to{
+                height: 9rem;
+                width: 9rem;
+            }
+        }
+        </style>
+        <script>
+            var points = 0 ;
+            var te = document.getElementById("te") ;
+            var left = [ "rockleft" , "paperleft" , "scissorleft"] ;
+            var right = [ "rockright" , "paperright" , "scissorright"] ;
+            function rr(){
+                var i = Math.floor(Math.random() * right.length);
+                var Rplay = right[i]
+                if( Rplay == "rockright"){
+                    document.getElementById("te").innerHTML = "DRAW ! , TRY AGAIN ." ;
+                }
+                else if ( Rplay == "paperright"){
+                    document.getElementById("te").innerHTML = "YOU LOST ! , TRU AGAIN ."
+                    points = 0
+                    document.getElementById("po").innerHTML = "Points : 0 " ;
+                }
+                else if ( Rplay == "scissorright"){
+                    document.getElementById("te").innerHTML = "YOU WON ! , CONTINUE ."
+                    points = points + 1 ; 
+                    document.getElementById("po").innerHTML = "Points : " + points
+                                }
+            }
+            function pr(){
+                var i = Math.floor(Math.random() * right.length);
+                var Rplay = right[i]
+                if( Rplay == "rockright"){
+                    document.getElementById("te").innerHTML = "YOU WON ! , CONTINUE ." ;
+                    points = points + 1 ; 
+                    document.getElementById("po").innerHTML = "Points : " + points
+                }
+                else if ( Rplay == "paperright"){
+                    document.getElementById("te").innerHTML = "DRAW ! , TRY AGAIN ."
+                }
+                else if ( Rplay == "scissorright"){
+                    document.getElementById("te").innerHTML = "YOU LOST ! , TRY AGAIN ."
+                    points = 0 ;
+                    document.getElementById("po").innerHTML = "Points : 0 " ;
+
+                }
+            }
+            function sr(){
+                var i = Math.floor(Math.random() * right.length);
+                var Rplay = right[i]
+                if( Rplay == "rockright"){
+                    document.getElementById("te").innerHTML = "YOU LOST ! , TRY AGAIN ." ;
+                    points = points + 1 ; 
+                    document.getElementById("po").innerHTML = "Points : " + points
+                }
+                else if ( Rplay == "paperright"){
+                    document.getElementById("te").innerHTML = "YOU WON ! , CONTINUE ."
+                }
+                else if ( Rplay == "scissorright"){
+                    document.getElementById("te").innerHTML = "DRAW ! , TRY AGAIN ."
+                    points = 0 ;
+                    document.getElementById("po").innerHTML = "Points : 0 " ;
+
+                }
+            }
+        </script>
+</head>
+<body>
+    <p id="te">START !</p>
+    <p id="po">Points : 0</p>
+    <div id="all">
+        <div id="left">
+            <div id="rockleft" class="ch"> <button onclick="rr()"><img src="rockleft.png" class="ch"></button></div>
+            <div id="paperleft" class="ch"><img src="paperleft.png" class="ch"></button></div>
+            <div id="scissorleft" class="ch"><img src="scissorleft.png" class="ch"></button></div>
+        </div>
+        <div id="right"> 
+            <div id="rockright"><img src="rockright.png" class="rockright"></div>
+            <div id="paperright"><img src="paperright.png" class="paperright"></div>
+            <div id="scissorright"><img src="scissorright.png" class="scissorright"></div>
+        </div>
+    </div>
+</body>
+</html>
